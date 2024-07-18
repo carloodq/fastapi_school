@@ -1,5 +1,7 @@
-import os 
-
+from dotenv import dotenv_values
+config = dotenv_values(".env")
+import os
+os.environ["OPENAI_API_KEY"] = config['OPENAI_API_KEY']
 from langchain.chat_models import ChatOpenAI
 from langchain.schema import (
     HumanMessage
@@ -52,7 +54,7 @@ def gen_reply(query, context = "", chat_history = ""):
         chat_history = f"Conversazione:{chat_history}"
 
     model_name = "gpt-3.5-turbo"
-    chat = ChatOpenAI(model_name=model_name, temperature=0, api_key = os.environ.get('OPENAI_API_KEY') )
+    chat = ChatOpenAI(model_name=model_name, temperature=0)
     question = f"""Sei un chatbot che sta avendo una conversazione con un essere umano.
 
                     Dati i seguenti estratti e una domanda, crea una risposta finale.

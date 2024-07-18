@@ -2,3 +2,4 @@ python-dotenv
 langchain
 fastapi
 uvicorn
+langchain_community
