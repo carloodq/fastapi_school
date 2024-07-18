@@ -1,9 +1,7 @@
 from dotenv import dotenv_values
-from os import environ
 config = dotenv_values(".env")
-import os
-os.environ["OPENAI_API_KEY"] = config['OPENAI_API_KEY']
-import pandas as pd
+import os.environ as osenviron
+osenviron["OPENAI_API_KEY"] = config['OPENAI_API_KEY']
 # from dotenv import load_dotenv
 
 
