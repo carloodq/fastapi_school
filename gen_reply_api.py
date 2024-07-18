@@ -1,18 +1,11 @@
 from dotenv import dotenv_values
-from dotenv import load_dotenv
 from os import environ
 config = dotenv_values(".env")
 import os
 os.environ["OPENAI_API_KEY"] = config['OPENAI_API_KEY']
 import pandas as pd
 # from dotenv import load_dotenv
-from langchain.text_splitter import CharacterTextSplitter
-from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.vectorstores import FAISS
-from langchain.chains.question_answering import load_qa_chain
-from langchain.llms import OpenAI
-from langchain.callbacks import get_openai_callback
-from langchain.document_loaders import CSVLoader
+
 
 
 # def csv_to_vs(path_to_corpus, oaikey):
