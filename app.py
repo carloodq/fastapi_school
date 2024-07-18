@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-# from gen_reply_api import gen_reply
+from gen_reply_api import gen_reply
 
 app = FastAPI()
 
