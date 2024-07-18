@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from gen_reply_api import gen_reply
+# from gen_reply_api import gen_reply
 
 app = FastAPI()
 
@@ -18,7 +18,7 @@ async def chat(request: ChatRequest):
         raise HTTPException(status_code=400, detail="Missing or invalid parameters")
 
     # Dummy response logic
-    bot_response, _ = gen_reply(request.message)
+    bot_response, _ = "hey", "" #gen_reply(request.message)
 
     return ChatResponse(botMessage=bot_response)
 
