@@ -1,7 +1,13 @@
-from dotenv import dotenv_values
-config = dotenv_values(".env")
-from os import environ
-environ["OPENAI_API_KEY"] = config['OPENAI_API_KEY']
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Accessing environment variables
+api_key = os.getenv('OPENAI_API_KEY')
+
+
 from langchain.chat_models import ChatOpenAI
 from langchain.schema import (
     HumanMessage
