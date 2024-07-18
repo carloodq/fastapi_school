@@ -3,3 +3,4 @@ langchain
 fastapi
 uvicorn
 langchain_community
+openai
