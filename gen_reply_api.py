@@ -1,7 +1,12 @@
 from dotenv import dotenv_values
 config = dotenv_values(".env")
-import os.environ as osenviron
-osenviron["OPENAI_API_KEY"] = config['OPENAI_API_KEY']
+from os import environ
+environ["OPENAI_API_KEY"] = config['OPENAI_API_KEY']
+from langchain.chat_models import ChatOpenAI
+from langchain.schema import (
+    HumanMessage
+)
+
 # from dotenv import load_dotenv
 
 
@@ -43,11 +48,6 @@ osenviron["OPENAI_API_KEY"] = config['OPENAI_API_KEY']
 
 
 def gen_reply(query, context = "", chat_history = ""):
-    from langchain.chat_models import ChatOpenAI
-    from langchain.schema import (
-        HumanMessage
-    )
-
     if len(context) > 0:
         context = f"Contesto:{context}"
     if len(chat_history) > 0:
