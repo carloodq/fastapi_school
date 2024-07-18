@@ -1,12 +1,4 @@
-from dotenv import load_dotenv
-import os
-
-# Load environment variables from .env file
-load_dotenv()
-
-# Accessing environment variables
-api_key = os.getenv('OPENAI_API_KEY')
-
+import os 
 
 from langchain.chat_models import ChatOpenAI
 from langchain.schema import (
@@ -60,7 +52,7 @@ def gen_reply(query, context = "", chat_history = ""):
         chat_history = f"Conversazione:{chat_history}"
 
     model_name = "gpt-3.5-turbo"
-    chat = ChatOpenAI(model_name=model_name, temperature=0)
+    chat = ChatOpenAI(model_name=model_name, temperature=0, api_key = os.environ.get('OPENAI_API_KEY') )
     question = f"""Sei un chatbot che sta avendo una conversazione con un essere umano.
 
                     Dati i seguenti estratti e una domanda, crea una risposta finale.
