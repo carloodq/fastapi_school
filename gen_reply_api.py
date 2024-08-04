@@ -60,6 +60,8 @@ def gen_reply(query, context = "", chat_history = ""):
 
                     Dati i seguenti estratti e una domanda, crea una risposta finale.
 
+                    Rispondi nella lingua in cui ti viene fatta la domanda.
+
                     {context}
 
                     {chat_history}

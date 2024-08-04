@@ -16,6 +16,7 @@ app.add_middleware(
 
 class ChatRequest(BaseModel):
     userId: str
+    context: str
     message: str
 
 class ChatResponse(BaseModel):
@@ -24,11 +25,11 @@ class ChatResponse(BaseModel):
 @app.post("/api/chat", response_model=ChatResponse)
 async def chat(request: ChatRequest):
     # Basic validation (can be more complex based on actual requirements)
-    if not request.userId or not request.message:
+    if not request.userId or not request.message or not request.context:
         raise HTTPException(status_code=400, detail="Missing or invalid parameters")
 
     # Dummy response logic
-    bot_response, _ = gen_reply(request.message)
+    bot_response, _ = gen_reply(request.message, "Rispondi basandoti su queste informazioni:\n" + str(request.context))
 
     return ChatResponse(botMessage=bot_response)
 
